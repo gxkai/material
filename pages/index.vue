@@ -1,15 +1,33 @@
 <template>
-  <d2-crud
-    :columns="columns"
-    :data="data"
-    :loading="loading"
-    :pagination="pagination"
-  />
+  <div>
+    <breadcrumb class="breadcrumb-container" />
+    <d2-crud
+      :columns="columns"
+      :data="data"
+      :loading="loading"
+      :pagination="pagination"
+    />
+  </div>
 </template>
 
 <script>
+import Breadcrumb from '@/components/Breadcrumb'
 export default {
-  middleware: 'auth',
+  components: {
+    Breadcrumb
+  },
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My custom description',
+          title: 'description'
+        }
+      ]
+    }
+  },
   data() {
     return {
       columns: [
