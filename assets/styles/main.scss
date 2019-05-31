@@ -1,43 +1,4 @@
 @import '~assets/fonts/style.css';
-html,
-body,
-header,
-#__nuxt {
-  height: 100%;
-  // max-width: 1440px;
-  // max-height: 900px;
-  margin: 0 auto;
-}
-#__layout{
-  height: 100%;
-}
-body {
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft YaHei', SimSun, sans-serif;
-  overflow: auto;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-}
-a {
-  color: #4078c0;
-  text-decoration: none;
-}
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-}
-.demo {
-  margin: 20px 0;
-}
-.hide {
-  opacity: 0 !important;
-  width: 0 !important;
-}
 /* Nav Icon */
 .nav-icon {
   $first-top: 5px;
@@ -54,7 +15,7 @@ textarea {
     position: absolute;
     height: 2px;
     width: 100%;
-    background: #00bcd4;
+    background: gray;
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -89,14 +50,4 @@ textarea {
       left: 50%;
     }
   }
-}
-.input-with-select .el-input-group__prepend {
-  width: auto
-}
-@media (max-width: 1440px) {
-  .container {
-    width: 100%;
-  }
-}
-@media (max-width: 768px) {
 }
