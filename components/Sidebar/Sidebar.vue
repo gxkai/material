@@ -3,7 +3,7 @@
     <div
       class="flex items-center justify-between text-2xl bg-color-gray pl-4 pr-2 sidebar-header"
     >
-      <div style="color: gray">
+      <div style="color: gray" class="truncate">
         智能工厂MES
       </div>
       <div
@@ -76,17 +76,7 @@ export default Sidebar
   width: 100%;
   height: 100%;
   z-index: 9999;
-  .horizontal-collapse-transition {
-    transition: 0s width ease-in-out, 0s padding-left ease-in-out,
-      0s padding-right ease-in-out;
-  }
   background-color: rgb(48, 65, 86);
-  .scrollbar-wrapper {
-    overflow-x: hidden !important;
-    .el-scrollbar__view {
-      height: 100%;
-    }
-  }
   .el-scrollbar__bar.is-vertical {
     right: 0px;
   }
@@ -97,14 +87,6 @@ export default Sidebar
     display: inline-block;
     width: 100%;
     overflow: hidden;
-  }
-  .el-menu {
-    border: none;
-    height: 100%;
-    width: 100% !important;
-  }
-  .is-active > .el-submenu__title {
-    color: #f4f4f5 !important;
   }
 }
 </style>
