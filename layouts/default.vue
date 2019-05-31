@@ -5,7 +5,7 @@
         :sm="4"
         :xs="24"
         :class="{ hide: isMenuHidden, navCol: true }"
-        style="height: 100vh"
+        class="h-screen"
       >
         <sidebar :class="{ hide: isMenuHidden, navCol: true }" />
       </el-col>
@@ -37,13 +37,13 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<!--<style scoped lang="scss">
 .app {
   height: 100%;
   .el-row.main {
     height: 100%;
     .el-col {
-      height: 100%;
+      height: 100vh;
     }
     .navCol {
       transition: width 0.5s, opacity 0.15s ease-out;
@@ -55,8 +55,5 @@ export default {
       transition: width 0.5s, opacity 0.5s ease-in;
     }
   }
-  @media (max-width: 768px) {
-    height: auto;
-  }
 }
-</style>
+</style>-->

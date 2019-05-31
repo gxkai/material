@@ -37,12 +37,6 @@ import SidebarItem from './SidebarItem'
 const Menu = namespace('menu')
 @Component({
   components: { SidebarItem },
-  props: {
-    menuList: {
-      type: Array,
-      required: true
-    }
-  },
   methods: {
     ...mapActions(['toggleMenu'])
   }
@@ -72,7 +66,7 @@ class Sidebar {
 }
 export default Sidebar
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .sidebar-header {
   background-color: rgb(48, 65, 86);
 }
@@ -86,9 +80,7 @@ export default Sidebar
     transition: 0s width ease-in-out, 0s padding-left ease-in-out,
       0s padding-right ease-in-out;
   }
-  .el-scrollbar {
-    height: 100%;
-  }
+  background-color: rgb(48, 65, 86);
   .scrollbar-wrapper {
     overflow-x: hidden !important;
     .el-scrollbar__view {
