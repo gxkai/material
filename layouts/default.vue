@@ -7,7 +7,7 @@
         :class="{ hide: isMenuHidden, navCol: true }"
         class="h-screen"
       >
-        <sidebar :class="{ hide: isMenuHidden, navCol: true }" />
+        <sidebar />
       </el-col>
       <el-col :sm="colSize" :xs="24" class="content">
         <el-row><headbar /></el-row>
@@ -37,23 +37,16 @@ export default {
 }
 </script>
 
-<!--<style scoped lang="scss">
+<style scoped lang="scss">
 .app {
-  height: 100%;
-  .el-row.main {
-    height: 100%;
-    .el-col {
-      height: 100vh;
-    }
-    .navCol {
-      transition: width 0.5s, opacity 0.15s ease-out;
-      &.hide {
-        transition: width 0.5s, opacity 2s ease-in;
-      }
-    }
-    .content {
-      transition: width 0.5s, opacity 0.5s ease-in;
-    }
+  .navCol {
+    transition: width 0.5s, opacity 0.15s ease-out;
+  }
+  .hide {
+    transition: width 0.5s, opacity 2s ease-in;
+  }
+  .content {
+    transition: width 0.5s, opacity 0.5s ease-in;
   }
 }
-</style>-->
+</style>
