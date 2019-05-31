@@ -1,14 +1,10 @@
-const router = require('koa-router')({ prefix: '/api' })
+const router = require('koa-router')({ prefix: '/mpi' })
 module.exports = app => {
-  router.get('/', app.controller.home.index)
-
-  router.get('/home', app.controller.home.home)
-
-  router.get('/home/:id/:name', app.controller.home.homeParams)
-
-  router.get('/user', app.controller.home.login)
-
-  router.post('/user/register', app.controller.home.register)
+  router.post('/test', app.controller.auth.test)
+  router.post('/auth/logout', app.controller.auth.logout)
+  router.post('/auth/checkToken', app.controller.auth.checkToken)
+  router.post('/auth/GetUserBaseInfo', app.controller.auth.GetUserBaseInfo)
+  router.post('/auth/menuTree', app.controller.auth.GetMenuTree)
 
   app.use(router.routes()).use(router.allowedMethods())
 }
