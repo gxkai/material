@@ -11,6 +11,7 @@
       </el-col>
       <el-col :sm="colSize" :xs="24" class="content">
         <el-row><headbar /></el-row>
+        <el-row><breadcrumb /></el-row>
         <el-row><nuxt /></el-row>
       </el-col>
     </el-row>
@@ -21,12 +22,14 @@
 import { mapGetters } from 'vuex'
 import Sidebar from '@/components/Sidebar/Sidebar'
 import Headbar from '@/components/Headbar'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export default {
   // middleware: 'auth',
   components: {
     Sidebar,
-    Headbar
+    Headbar,
+    Breadcrumb
   },
   computed: {
     colSize() {
