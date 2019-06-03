@@ -93,7 +93,7 @@ export const actions = {
     }
   },
   async logout({ commit }, callback) {
-    await this.$axios.post('/mpi/auth/logout')
+    await this.$axios.post('/api/v1/auth/logout')
     commit('SET_TOKEN')
     callback()
   },
