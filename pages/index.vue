@@ -1,6 +1,5 @@
 <template>
   <div>
-    <breadcrumb class="breadcrumb-container" />
     <d2-crud
       :columns="columns"
       :data="data"
@@ -11,11 +10,7 @@
 </template>
 
 <script>
-import Breadcrumb from '@/components/Breadcrumb'
 export default {
-  components: {
-    Breadcrumb
-  },
   head() {
     return {
       meta: [
