@@ -4,14 +4,14 @@
       <template v-if="item.children.length == 0">
         <el-menu-item :index="item.path">
           <i class="el-icon-menu"></i>
-          {{ item.title }}
+          {{ $t(item.path) }}
         </el-menu-item>
       </template>
 
       <el-submenu v-else :index="item.path">
         <template slot="title">
           <i class="el-icon-menu"></i>
-          {{ item.title }}
+          {{ $t(item.path) }}
         </template>
 
         <template v-for="child in item.children">
@@ -22,7 +22,7 @@
           />
           <el-menu-item v-else :key="child.id" :index="child.path">
             <lux-icon type="yuandian" />
-            {{ child.title }}
+            {{ $t(child.path) }}
           </el-menu-item>
         </template>
       </el-submenu>
@@ -30,7 +30,7 @@
     <div v-else>
       <el-menu-item :index="item.path">
         <i class="el-icon-menu"></i>
-        {{ item.title }}
+        {{ $t(item.path) }}
       </el-menu-item>
     </div>
   </div>

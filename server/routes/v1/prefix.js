@@ -1,10 +1,8 @@
-import Doc, { description } from 'koa-swagger-decorator'; // 2 import style avaliable
+import Doc, { description } from 'koa-swagger-decorator' // 2 import style avaliable
 
-const {
-  request, summary, query, tags, responses, prefix
-} = Doc;
+const { request, summary, query, tags, responses, prefix } = Doc
 
-const tag = tags(['prefix']);
+const tag = tags(['prefix'])
 
 @prefix('/v1')
 class PrefixRouter {
@@ -23,8 +21,8 @@ class PrefixRouter {
     500: { description: 'something wrong about server' }
   })
   static async classPrefix(ctx) {
-    const { page } = ctx.request.query;
-    ctx.body = { result: page };
+    const { page } = ctx.request.query
+    ctx.body = { result: page }
   }
 }
 export default PrefixRouter

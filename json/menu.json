@@ -1,64 +1,15 @@
 [
   {
     "id": 1,
-    "title": "首页",
-    "path": "/1"
+    "path": "/"
   },
   {
-    "id": 2,
-    "title": "首页",
-    "path": "/2"
-  },
-  {
-    "id": 3,
-    "title": "首页",
-    "path": "/3",
+    "id": "2",
+    "path": "/demo",
     "children": [
       {
-        "id": 4,
-        "title": "首页",
-        "path": "/4",
-        "children": [
-          {
-            "id": 5,
-            "title": "首页",
-            "path": "/5"
-          }
-        ]
-      },
-      {
-        "id": 6,
-        "title": "首页",
-        "path": "/6"
-      },
-      {
-        "id": 7,
-        "title": "首页",
-        "path": "/7"
-      },
-      {
-        "id": 8,
-        "title": "首页",
-        "path": "/8"
-      }
-    ]
-  },
-  {
-    "id": 9,
-    "title": "首页",
-    "path": "/9",
-    "children": [
-      {
-        "id": 10,
-        "title": "首页",
-        "path": "/10",
-        "children": [
-          {
-            "id": 11,
-            "title": "首页",
-            "path": "/11"
-          }
-        ]
+        "id": "3",
+        "path": "/demo"
       }
     ]
   }

@@ -11,7 +11,7 @@
       </el-col>
       <el-col :sm="colSize" :xs="24" class="content">
         <el-row><headbar /></el-row>
-        <el-row><breadcrumb /></el-row>
+        <el-row> <breadcrumb :path="$route.path" /> </el-row>
         <el-row><nuxt /></el-row>
       </el-col>
     </el-row>

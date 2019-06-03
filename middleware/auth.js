@@ -1,15 +1,9 @@
-export default async ({ redirect, route, store, $axios }) => {
+export default async ({ redirect, route, store, $axios, isClient }) => {
   const redirectUri = encodeURIComponent(
     `http://localhost:3000${route.fullPath.replace(/token=[^&]*(&)?/g, '')}`
   )
-  if (!store.state.token || !store.state.authMenu.includes(route.path)) {
-    return redirect(
-      `http://ksat.luxshare-ict.com/passport/login?appid=Lux.MES&redirect_uri=${redirectUri}`
-    )
-  }
-  try {
-    await $axios.post(`/mpi/auth/checkToken`, { token: store.state.token })
-  } catch (e) {
+  console.log(store.state.token)
+  if (!store.state.token) {
     return redirect(
       `http://ksat.luxshare-ict.com/passport/login?appid=Lux.MES&redirect_uri=${redirectUri}`
     )

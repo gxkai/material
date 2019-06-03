@@ -1,15 +1,19 @@
 import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
 import cors from 'koa-cors'
-
+import middleware from './middleware'
 import errorHandle from './middleware/errorHandle'
+
 import router from './routes/index'
 
 const serve = require('koa-static')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
+const { open } = require(`./db/connect`)
 
 const app = new Koa()
+open()
+middleware(app)
 app
   .use(cors())
   .use(serve('.'))
@@ -42,6 +46,7 @@ async function start() {
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling
     ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
+    ctx.req.session = ctx.session
     nuxt.render(ctx.req, ctx.res)
   })
 

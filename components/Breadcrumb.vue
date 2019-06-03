@@ -1,82 +1,52 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="/">
-    <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
-        <span
-          v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"
-          class="no-redirect"
-          >{{ item.name }}</span
-        >
-        <a v-else @click.prevent="handleLink(item)">{{ item.name }}</a>
-      </el-breadcrumb-item>
-    </transition-group>
-  </el-breadcrumb>
+  <div class="p-2 ">
+    <el-row>
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item v-for="(path, index) in paths_" :key="index">
+          <nuxt-link :to="index < paths_.length ? path : ''" class="text-base">
+            {{ $t(path) }}
+          </nuxt-link>
+        </el-breadcrumb-item>
+      </el-breadcrumb>
+    </el-row>
+  </div>
 </template>
 
 <script>
-import pathToRegexp from 'path-to-regexp'
-
-export default {
-  data() {
-    return {
-      levelList: null
+import Vue from 'vue'
+import { Component } from 'nuxt-property-decorator'
+@Component({
+  props: {
+    path: {
+      default: '/'
     }
   },
   watch: {
     $route() {
-      this.getBreadcrumb()
+      this.getBreabcrumb()
     }
-  },
-  created() {
-    this.getBreadcrumb()
-  },
-  methods: {
-    getBreadcrumb() {
-      // only show routes with meta.title
-      let matched = this.$route.matched.filter(item => item.name)
-      const first = matched[0]
-
-      if (!this.isDashboard(first)) {
-        matched = [{ path: '/', name: 'index' }].concat(matched)
-      }
-
-      this.levelList = matched.filter(item => item.name)
-    },
-    isDashboard(route) {
-      const name = route && route.name
-      if (!name) {
-        return false
-      }
-      return name.trim().toLocaleLowerCase() === 'index'.toLocaleLowerCase()
-    },
-    pathCompile(path) {
-      // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
-      const { params } = this.$route
-      const toPath = pathToRegexp.compile(path)
-      return toPath(params)
-    },
-    handleLink(item) {
-      const { redirect, path } = item
-      if (redirect) {
-        this.$router.push(redirect)
-        return
-      }
-      this.$router.push(this.pathCompile(path))
+  }
+})
+class Breadcrumb extends Vue {
+  paths = []
+  paths_ = []
+  mounted() {
+    this.getBreabcrumb()
+  }
+  getBreabcrumb() {
+    this.paths_ = []
+    this.paths = this.$route.path.split('/')
+    this.addPath(this.paths)
+    this.paths_.reverse()
+  }
+  addPath(e) {
+    if (e.length === 1) {
+    } else {
+      this.paths_.push(this.paths.map(e => e).join('/'))
+      e.splice(e.length - 1, 1)
+      this.addPath(e)
     }
   }
 }
+export default Breadcrumb
 </script>
-
-<style lang="scss" scoped>
-.app-breadcrumb.el-breadcrumb {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 50px;
-  margin-left: 8px;
-
-  .no-redirect {
-    color: #97a8be;
-    cursor: text;
-  }
-}
-</style>

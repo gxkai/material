@@ -85,10 +85,11 @@ export const actions = {
    * https://github.com/nuxt/docs/blob/master/en/guide/vuex-store.md
    */
   nuxtServerInit({ commit }, { req }) {
-    if (req.session && req.session.token && req.session.authUser) {
+    console.log(`req session:%s`, req.session)
+    if (req.session && req.session.token) {
       commit('SET_TOKEN', req.session.token)
       commit('SET_USER', req.session.authUser)
-      commit('SET_AUTH_MENU', req.session.authMenu)
+      // commit('SET_AUTH_MENU', req.session.authMenu)
     }
   },
   async logout({ commit }, callback) {
