@@ -17,11 +17,11 @@
         <template v-for="child in item.children">
           <sidebar-item
             v-if="child.children && child.children.length > 0"
-            :item="child"
             :key="child.id"
+            :item="child"
           />
           <el-menu-item v-else :key="child.id" :index="child.path">
-            <i class="el-icon-location"></i>
+            <lux-icon type="yuandian" />
             {{ child.title }}
           </el-menu-item>
         </template>

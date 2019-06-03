@@ -14,8 +14,8 @@ const FONT_FILE_TYPE_SVG = 'svg'
 const icon = [
   {
     // 自动维护图标
-    aliUrl: '//at.alicdn.com/t/font_1187441_kaci15hi5q.css', // 暂时只支持使用阿里巴巴图标库
-    dir: 'components/iconfont' // 公共图标
+    aliUrl: '//at.alicdn.com/t/font_1224296_lx6mxcws22b.css', // 暂时只支持使用阿里巴巴图标库
+    dir: 'assets/fonts' // 公共图标
   }
 ]
 

@@ -22,14 +22,6 @@
             <span> {{ displayName }}</span>
           </p>
         </el-col>
-        <!--        <el-col :span="3">-->
-        <!--          <p @click="$router.push('/account/token')">-->
-        <!--            <el-tooltip :content="$t('head.pwd')">-->
-        <!--              <img src="~/assets/img/pwd.svg" />-->
-        <!--            </el-tooltip>-->
-        <!--            <span> {{ $t('head.pwd') }}</span>-->
-        <!--          </p>-->
-        <!--        </el-col>-->
         <el-col :span="2">
           <p @click="logout">
             <img src="~/assets/img/exit.svg" />

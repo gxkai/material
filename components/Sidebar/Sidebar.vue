@@ -4,7 +4,7 @@
       class="flex items-center justify-between text-2xl bg-color-gray pl-4 pr-2 sidebar-header"
     >
       <div style="color: gray" class="truncate">
-        智能工厂MES
+        {{ $t(`side.name`) }}
       </div>
       <div
         class="nav-icon open"
